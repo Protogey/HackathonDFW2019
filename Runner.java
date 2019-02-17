@@ -9,20 +9,10 @@ public class Runner{
 		head = list();
 		int length = lengthOfBuddy(head);
 		System.out.println("There is a total of "+length+" tutors available.");
-		System.out.println(head.getFirst_Name());
 		Buddy scnd = schl(head);
-		System.out.println("This is second "+scnd.getFirst_Name());
 		Buddy thrd = sbjct(scnd);
-		System.out.println("This is third "+thrd.getFirst_Name());
 		Buddy frth = tm(thrd);
-		System.out.println("This is fourth "+frth.getFirst_Name());
-		while(frth.next!=null){
-			System.out.println("The study buddy that matches best to your inputs is: "+frth.getFirst_Name());
-			System.out.println(frth.getSchool());
-			System.out.println(frth.getSubject());
-			System.out.println(frth.getTime()+"pm");
-			frth = frth.next;
-		}
+		System.out.println(frth.getFirst_Name());
 	}
 	
 	public static Buddy schl(Buddy head){
@@ -39,12 +29,17 @@ public class Runner{
 		while(temp.next != null){
 			int h = temp.getSchool();
 			if(in == h){
-				hold.First_Name = temp.First_Name;
+				String hold0 = temp.getFirst_Name();
+				String hold1 = temp.getEmail();
+				int hold2 = temp.getSchool();
+				int hold3 = temp.getSubject();
+				int hold4 = temp.getTime();
+				hold.First_Name = hold0;
 				System.out.println(hold.getFirst_Name());
-				hold.Email = temp.Email;
-				hold.School = temp.School;
-				hold.Time = temp.Time;
-				hold.Subject = temp.Subject;
+				hold.Email = hold1;
+				hold.School = hold2;
+				hold.Time = hold4;
+				hold.Subject = hold3;
 				hold.next = new Buddy();
 				hold = hold.next;
 				temp = temp.next;
@@ -76,7 +71,7 @@ public class Runner{
 		System.out.println("4. Writing");
 		int in = s.nextInt();
 		while(temp.next != null){
-			int h = temp.getSchool();
+			int h = temp.getSubject();
 			if(in == h){
 				hold.First_Name = temp.First_Name;
 				hold.Email = temp.Email;
@@ -114,7 +109,7 @@ public class Runner{
 		System.out.println("3. 4pm");
 		int in = s.nextInt();
 		while(temp.next != null){
-			int h = temp.getSchool();
+			int h = temp.getTime();
 			if(in == h){
 				hold.First_Name = temp.First_Name;
 				hold.Email = temp.Email;
